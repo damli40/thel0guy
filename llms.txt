@@ -1,0 +1,34 @@
+# The L0 Guy
+
+> Technical content that turns protocols into integrations. A writer who understands protocol internals AND can write them clearly — for the developers and the coding agents now building from docs.
+
+Name: The L0 Guy (handle). Two years inside LayerZero (Legend role, community council member). Builder of OFT Sentinel.
+Site: https://damli40.github.io/thel0guy/
+
+## Offer
+
+Technical content for crypto-infrastructure teams: I make complex protocol mechanics impossible to misunderstand — for the humans reading the docs and for the coding agents (Claude Code, Cursor) that now fetch those docs to write integrations. Single conversion action: get in touch.
+
+## Why teams bring me in (value props)
+
+1. Your docs are now read by agents, not just developers. A growing share of integrations start with someone pointing a coding agent at your docs; if that surface is ambiguous, the agent doesn't bounce — it ships the wrong config. I write docs both humans and agents parse correctly, and structure the agent-readable layer so the right integration gets generated. (This is the core differentiator.)
+2. Your docs are your developer funnel. The hardest part of infra growth is getting people to understand the tech well enough to build on it. I write the explainer that turns "I don't get it" into "I shipped it."
+3. I'm the rare overlap. Engineers who understand the protocol usually can't write; writers who can write usually don't understand it. I do both, with two years of public proof.
+4. I translate infra into capital and adoption. My work has made fee-switch dynamics, DVN economics, and omnichain trust legible to thousands of sophisticated readers.
+
+## Proof
+
+- OFT Sentinel — an autonomous trust-intelligence agent and the entire narrative around it; top 120 of 576 in Mantle's Turing Test Hackathon. The README and product are a writing sample: complex security mechanics, made clear. https://oft-sentinel.netlify.app
+- The fee switch as a governance weapon — surfaced a competitive war most ZRO holders never saw. https://x.com/rookie_of_Ph/status/2013626693873783041
+- DVNs are the ISPs of crypto — reframed a $100M infrastructure opportunity in one analogy. https://x.com/rookie_of_Ph/status/2001921578393833861
+- Stats: 2 years as a top LayerZero voice; single posts regularly clearing thousands of views; top 120 of 576 at the Mantle hackathon.
+
+## What I deliver
+
+Integration & developer guides; protocol docs; technical explainers; agent-readable doc structure (llms.txt / clean reads); strategic research content.
+
+## Contact
+
+- Email: demiladeakins@gmail.com
+- X / Twitter DM: @rookie_of_Ph (https://x.com/rookie_of_Ph)
+- Telegram: @damitheG (https://t.me/damitheG)

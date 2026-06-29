@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The L0 Guy · Technical Content That Turns Protocols Into Integrations</title>
+<link rel="canonical" href="https://damli40.github.io/thel0guy/" />
+<meta name="description" content="For infrastructure teams: a developer who can't understand your docs integrates your competitor instead, and the coding agent reading them can miswire your config. I make complex protocol mechanics impossible to misunderstand, for humans and agents. Two years inside LayerZero, builder of OFT Sentinel." />
+<meta property="og:title" content="The L0 Guy · Technical Content That Turns Protocols Into Integrations" />
+<meta property="og:description" content="Docs correct for the developer and the coding agent reading them. Two years inside LayerZero (Legend role, community council), builder of OFT Sentinel." />
+<meta property="og:type" content="profile" />
+<meta property="og:url" content="https://damli40.github.io/thel0guy/" />
+<meta property="og:image" content="https://damli40.github.io/thel0guy/uploads/lz.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The L0 Guy · Technical Content That Turns Protocols Into Integrations" />
+<meta name="twitter:description" content="Docs correct for the developer and the coding agent reading them. Two years inside LayerZero, builder of OFT Sentinel." />
+<meta name="twitter:image" content="https://damli40.github.io/thel0guy/uploads/lz.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfilePage","url":"https://damli40.github.io/thel0guy/","mainEntity":{"@type":"Person","name":"The L0 Guy","url":"https://damli40.github.io/thel0guy/","alternateName":"Dami","jobTitle":"Technical Content Writer for Infrastructure Teams","description":"Technical content that turns protocols into integrations. Docs correct for developers and the coding agents reading them.","knowsAbout":["LayerZero","Omnichain","DVN","Technical Writing","Protocol Documentation","Agent-readable documentation","OFT"],"email":"mailto:demiladeakins@gmail.com","sameAs":["https://x.com/rookie_of_Ph","https://t.me/damitheG"]}}
+</script>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  ::selection { background: oklch(0.62 0.19 295 / 0.25); }
+
+  [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  [data-reveal].l0in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { [data-reveal] { opacity: 1 !important; transform: none !important; } }
+
+  @keyframes l0float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes l0pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: .65; } }
+  .l0-float { animation: l0float 6.5s ease-in-out infinite; }
+  .l0-pulse { animation: l0pulse 2.8s ease-in-out infinite; }
+
+  /* hover states (converted from design style-hover) */
+  .nav-link { transition: color .2s; }
+  .nav-link:hover { color: #14110f; }
+  .btn-primary { transition: background .2s; }
+  .btn-primary:hover { background: oklch(0.5 0.18 295); }
+  .header-link { transition: opacity .2s; }
+  .header-link:hover { opacity: .7; }
+  .proof-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(20,17,15,0.1); }
+  .contact-card { transition: border-color .2s, background .2s; }
+  .contact-card:hover { border-color: oklch(0.6 0.18 295); background: oklch(0.55 0.18 295 / 0.08); }
+
+  /* responsive: collapse the desktop layout to the mobile design */
+  @media (max-width: 860px) {
+    .top-nav { display: none !important; }
+    .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; align-items: start !important; }
+    .hero-figure { order: -1; }
+    .grid-3 { grid-template-columns: 1fr !important; }
+    .stats-grid { grid-template-columns: 1fr !important; }
+    .stats-grid > div { border-right: none !important; border-bottom: 1px solid rgba(243,241,238,0.12); }
+    .stats-grid > div:last-child { border-bottom: none; }
+    .deliver-grid { grid-template-columns: 1fr !important; }
+    .wedge-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .watermark { font-size: 40vw !important; top: 16vh !important; }
+    .scrollrow { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<main data-l0root style="background: #f3f1ee; color: #14110f; font-family: 'Schibsted Grotesk', sans-serif; min-height: 100%; -webkit-font-smoothing: antialiased; overflow: hidden; position: relative;">
+
+  <div class="watermark" aria-hidden="true" style="position: absolute; top: 22vh; left: -2vw; font-size: clamp(140px, 30vw, 460px); font-weight: 800; letter-spacing: -0.04em; color: #14110f; opacity: 0.035; line-height: 0.8; pointer-events: none; user-select: none; white-space: nowrap; font-family: 'Schibsted Grotesk', sans-serif;">PORTFOLIO</div>
+
+  <header style="position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; padding: 28px clamp(24px, 5vw, 72px); max-width: 1500px; margin: 0 auto;">
+    <div style="display: flex; align-items: center; gap: 36px;">
+      <a href="#top" style="display: flex; align-items: center; gap: 11px; text-decoration: none; color: inherit;">
+        <span style="width: 30px; height: 30px; border-radius: 50%; background: #14110f; color: #f3f1ee; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 13px;">L0</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.02em; font-weight: 500;">The L0 Guy</span>
+      </a>
+      <nav class="top-nav" style="display: flex; gap: 26px;">
+        <a class="nav-link" href="#why" style="text-decoration: none; color: #4a443f; font-size: 15px; font-weight: 500;">Why me</a>
+        <a class="nav-link" href="#proof" style="text-decoration: none; color: #4a443f; font-size: 15px; font-weight: 500;">Proof</a>
+        <a class="nav-link" href="#deliver" style="text-decoration: none; color: #4a443f; font-size: 15px; font-weight: 500;">Deliver</a>
+        <a class="nav-link" href="#contact" style="text-decoration: none; color: #4a443f; font-size: 15px; font-weight: 500;">Contact</a>
+      </nav>
+    </div>
+    <a class="header-link" href="#contact" style="display: inline-flex; align-items: center; gap: 7px; text-decoration: none; color: #14110f; font-size: 15px; font-weight: 600; border-bottom: 1.5px solid #14110f; padding-bottom: 3px;">Get in touch <span style="font-family: 'JetBrains Mono', monospace;">↗</span></a>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" aria-label="Introduction" class="hero-grid" style="position: relative; z-index: 4; max-width: 1500px; margin: 0 auto; padding: clamp(8px, 2vw, 24px) clamp(24px, 5vw, 72px) clamp(40px, 6vw, 80px); display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(24px, 4vw, 64px); align-items: end;">
+
+    <div style="display: flex; flex-direction: column;">
+      <div data-reveal style="display: flex; gap: 44px; margin-bottom: clamp(28px, 5vw, 56px);">
+        <div>
+          <div style="font-size: clamp(34px, 4.5vw, 56px); font-weight: 700; letter-spacing: -0.03em; line-height: 1;"><span style="font-size: 0.5em; vertical-align: top; font-weight: 600;">+</span>2<span style="font-size: 0.55em; font-weight: 600; margin-left: 2px;">yrs</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6b645e; margin-top: 8px; letter-spacing: 0.01em;">Inside LayerZero</div>
+        </div>
+        <div>
+          <div style="font-size: clamp(34px, 4.5vw, 56px); font-weight: 700; letter-spacing: -0.03em; line-height: 1;"><span style="font-size: 0.5em; vertical-align: top; font-weight: 600;">#</span>120<span style="font-size: 0.5em; font-weight: 600; color: #6b645e;">/576</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6b645e; margin-top: 8px; letter-spacing: 0.01em;">Mantle hackathon</div>
+        </div>
+      </div>
+
+      <div data-reveal style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.55 0.18 295); margin-bottom: 18px;">Technical content · Infra teams</div>
+
+      <h1 data-reveal style="font-size: clamp(56px, 9vw, 138px); font-weight: 800; letter-spacing: -0.045em; line-height: 0.92; margin: 0;">Hello<span class="l0-pulse" style="color: oklch(0.55 0.18 295); display: inline-block;">.</span></h1>
+
+      <p data-reveal style="font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; color: #2c2823; max-width: 480px; margin: 26px 0 0; font-weight: 500;">I make complex protocol mechanics <em style="font-style: italic;">impossible to misunderstand</em>, for the developers and the coding agents now building from them.</p>
+
+      <div data-reveal style="display: flex; flex-wrap: wrap; gap: 9px; margin-top: 30px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 7px 13px; border: 1px solid oklch(0.55 0.18 295 / 0.4); border-radius: 100px; color: oklch(0.42 0.14 295);">2 yrs LayerZero</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 7px 13px; border: 1px solid oklch(0.55 0.18 295 / 0.4); border-radius: 100px; color: oklch(0.42 0.14 295);">Legend role</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 7px 13px; border: 1px solid oklch(0.55 0.18 295 / 0.4); border-radius: 100px; color: oklch(0.42 0.14 295);">Community council</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 7px 13px; border: 1px solid oklch(0.55 0.18 295 / 0.4); border-radius: 100px; color: oklch(0.42 0.14 295);">Built OFT Sentinel</span>
+      </div>
+
+      <div data-reveal style="display: flex; align-items: center; gap: 22px; margin-top: 40px;">
+        <a class="btn-primary" href="#contact" style="display: inline-flex; align-items: center; gap: 9px; text-decoration: none; background: #14110f; color: #f3f1ee; font-size: 16px; font-weight: 600; padding: 15px 26px; border-radius: 100px;">Get in touch <span style="font-family: 'JetBrains Mono', monospace;">↗</span></a>
+        <a href="#proof" style="text-decoration: none; color: #14110f; font-size: 16px; font-weight: 600;">See proof ↓</a>
+      </div>
+    </div>
+
+    <figure class="hero-figure" data-reveal style="margin: 0; position: relative;">
+      <div class="l0-float" style="position: relative; border-radius: 14px; overflow: hidden; background: linear-gradient(135deg, #e9e2d8, #d9cfc2);">
+        <img src="uploads/lz.jpg?v=2" alt="The L0 Guy avatar: a stylized ape wearing a LayerZero cap and headphones, smoking a cigar" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;" />
+      </div>
+      <figcaption style="position: absolute; bottom: 14px; left: 14px; right: 14px; display: flex; align-items: center; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #f3f1ee; background: rgba(20,17,15,0.55); backdrop-filter: blur(6px); padding: 9px 13px; border-radius: 8px;">
+        <span>The L0 Guy</span>
+        <span style="opacity: 0.8;">layerzero · omnichain</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <div class="scrollrow" style="display: flex; align-items: center; justify-content: space-between; max-width: 1500px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px) 60px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6b645e;">
+    <span>Scroll down ↓</span>
+    <span>2026</span>
+  </div>
+
+  <!-- WHY -->
+  <section id="why" aria-labelledby="why-h" style="position: relative; z-index: 4; background: #14110f; color: #f3f1ee; padding: clamp(64px, 9vw, 130px) clamp(24px, 5vw, 72px);">
+    <div style="max-width: 1500px; margin: 0 auto;">
+      <div data-reveal style="display: flex; align-items: baseline; gap: 16px; margin-bottom: clamp(40px, 5vw, 70px);">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.7 0.15 295);">01</span>
+        <h2 id="why-h" style="font-size: clamp(32px, 5vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; margin: 0;">Why teams bring me in</h2>
+      </div>
+
+      <div class="wedge-grid" data-reveal style="border: 1.5px solid oklch(0.6 0.18 295 / 0.55); background: oklch(0.55 0.18 295 / 0.08); border-radius: 16px; padding: clamp(28px, 3.5vw, 44px); margin-bottom: 26px; display: grid; grid-template-columns: auto 1fr; gap: clamp(20px, 3vw, 40px); align-items: start;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.78 0.15 295); white-space: nowrap; padding-top: 6px;">THE WEDGE</div>
+        <div>
+          <h3 style="font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 14px;">Your docs are now read by agents, not just developers.</h3>
+          <p style="font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #c9c3bc; max-width: 760px; margin: 0;">A growing share of integrations start with someone pointing Claude Code or Cursor at your docs, and agents fetch your context, then write the integration from it. If that surface is ambiguous, the agent doesn't bounce, it ships the wrong config. I write docs both humans and coding agents parse correctly, and structure the agent-readable layer so the right integration gets generated.</p>
+        </div>
+      </div>
+
+      <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+        <article data-reveal style="border: 1px solid rgba(243,241,238,0.14); border-radius: 16px; padding: clamp(24px, 2.5vw, 34px);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6b645e; margin-bottom: 18px;">02</div>
+          <h3 style="font-size: clamp(18px, 1.7vw, 22px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; margin: 0 0 12px;">Your docs are your developer funnel.</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #a8a29b; margin: 0;">The hardest part of infra growth isn't the tech; it's getting people to understand it well enough to build on it. I write the explainer that turns "I don't get it" into "I shipped it."</p>
+        </article>
+        <article data-reveal style="border: 1px solid rgba(243,241,238,0.14); border-radius: 16px; padding: clamp(24px, 2.5vw, 34px);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6b645e; margin-bottom: 18px;">03</div>
+          <h3 style="font-size: clamp(18px, 1.7vw, 22px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; margin: 0 0 12px;">I'm the rare overlap.</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #a8a29b; margin: 0;">Engineers who understand your protocol usually can't write; writers who can write usually don't understand it. I do both, with two years of public proof.</p>
+        </article>
+        <article data-reveal style="border: 1px solid rgba(243,241,238,0.14); border-radius: 16px; padding: clamp(24px, 2.5vw, 34px);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6b645e; margin-bottom: 18px;">04</div>
+          <h3 style="font-size: clamp(18px, 1.7vw, 22px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; margin: 0 0 12px;">I translate infra into capital and adoption.</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #a8a29b; margin: 0;">My work has made fee-switch dynamics, DVN economics, and omnichain trust legible to thousands of sophisticated readers. That same clarity points at your protocol.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof" aria-labelledby="proof-h" style="position: relative; z-index: 4; padding: clamp(64px, 9vw, 130px) clamp(24px, 5vw, 72px);">
+    <div style="max-width: 1500px; margin: 0 auto;">
+      <div data-reveal style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.55 0.18 295);">02</span>
+        <h2 id="proof-h" style="font-size: clamp(32px, 5vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; margin: 0;">Proof, not promises</h2>
+      </div>
+      <p data-reveal style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #6b645e; margin: 0 0 clamp(40px, 5vw, 64px) 38px;">Each link is a writing sample.</p>
+
+      <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 18px;">
+        <a class="proof-card" href="https://oft-sentinel.netlify.app" target="_blank" rel="noopener" data-reveal style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border: 1px solid #e3ddd4; border-radius: 18px; padding: clamp(26px, 2.8vw, 38px); transition: transform .2s, box-shadow .2s;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.55 0.18 295);">Flagship</div>
+          <h3 style="font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; letter-spacing: -0.02em; margin: 14px 0 12px; line-height: 1.1;">OFT Sentinel</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #57514b; margin: 0 0 24px; flex: 1;">An autonomous trust-intelligence agent, and the entire narrative around it. Top 120 of 576 in Mantle's Turing Test Hackathon. The README and product <em>are</em> the writing sample: complex security mechanics, made clear.</p>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px;">View ↗</span>
+        </a>
+        <a class="proof-card" href="https://x.com/rookie_of_Ph/status/2013626693873783041" target="_blank" rel="noopener" data-reveal style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border: 1px solid #e3ddd4; border-radius: 18px; padding: clamp(26px, 2.8vw, 38px); transition: transform .2s, box-shadow .2s;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.55 0.18 295);">Research</div>
+          <h3 style="font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; letter-spacing: -0.02em; margin: 14px 0 12px; line-height: 1.1;">The fee switch as a governance weapon</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #57514b; margin: 0 0 24px; flex: 1;">Surfaced a competitive war most ZRO holders never saw. The governance mechanics behind the headline, made legible.</p>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px;">View ↗</span>
+        </a>
+        <a class="proof-card" href="https://x.com/rookie_of_Ph/status/2001921578393833861" target="_blank" rel="noopener" data-reveal style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border: 1px solid #e3ddd4; border-radius: 18px; padding: clamp(26px, 2.8vw, 38px); transition: transform .2s, box-shadow .2s;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.55 0.18 295);">Analogy</div>
+          <h3 style="font-size: clamp(22px, 2.2vw, 28px); font-weight: 700; letter-spacing: -0.02em; margin: 14px 0 12px; line-height: 1.1;">DVNs are the ISPs of crypto</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #57514b; margin: 0 0 24px; flex: 1;">Reframed a $100M infrastructure opportunity in one analogy. The kind of clarity that makes a category click for a whole audience.</p>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; display: inline-flex; align-items: center; gap: 8px;">View ↗</span>
+        </a>
+      </div>
+
+      <div class="stats-grid" data-reveal style="display: grid; grid-template-columns: repeat(3, 1fr); background: #14110f; color: #f3f1ee; border-radius: 18px; overflow: hidden;">
+        <div style="padding: clamp(28px, 3vw, 44px); border-right: 1px solid rgba(243,241,238,0.12);">
+          <div style="font-size: clamp(40px, 4.5vw, 60px); font-weight: 800; letter-spacing: -0.03em; line-height: 1;">2 yrs</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a8a29b; margin-top: 12px;">A top LayerZero voice</div>
+        </div>
+        <div style="padding: clamp(28px, 3vw, 44px); border-right: 1px solid rgba(243,241,238,0.12);">
+          <div style="font-size: clamp(40px, 4.5vw, 60px); font-weight: 800; letter-spacing: -0.03em; line-height: 1;">1,000s</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a8a29b; margin-top: 12px;">Views per single post</div>
+        </div>
+        <div style="padding: clamp(28px, 3vw, 44px);">
+          <div style="font-size: clamp(40px, 4.5vw, 60px); font-weight: 800; letter-spacing: -0.03em; line-height: 1;">120<span style="font-size: 0.5em; color: oklch(0.7 0.15 295);">/576</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a8a29b; margin-top: 12px;">Mantle Turing Test Hackathon</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVER -->
+  <section id="deliver" aria-labelledby="deliver-h" style="position: relative; z-index: 4; padding: 0 clamp(24px, 5vw, 72px) clamp(64px, 9vw, 120px);">
+    <div style="max-width: 1500px; margin: 0 auto; border-top: 1px solid #ddd6cc; padding-top: clamp(48px, 6vw, 80px);">
+      <div class="deliver-grid" style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(28px, 4vw, 64px); align-items: start;">
+        <div data-reveal style="display: flex; align-items: baseline; gap: 16px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.55 0.18 295);">03</span>
+          <h2 id="deliver-h" style="font-size: clamp(32px, 5vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; margin: 0;">What I deliver</h2>
+        </div>
+        <div data-reveal style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: #fff; border: 1px solid #e3ddd4; border-radius: 100px;">Integration &amp; developer guides</span>
+          <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: #fff; border: 1px solid #e3ddd4; border-radius: 100px;">Protocol docs</span>
+          <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: #fff; border: 1px solid #e3ddd4; border-radius: 100px;">Technical explainers</span>
+          <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: oklch(0.55 0.18 295); color: #fff; border: 1px solid oklch(0.55 0.18 295); border-radius: 100px;">Agent-readable doc structure</span>
+          <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: #fff; border: 1px solid #e3ddd4; border-radius: 100px;">llms.txt / clean reads</span>
+          <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: #fff; border: 1px solid #e3ddd4; border-radius: 100px;">Strategic research content</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="contact-h" style="position: relative; z-index: 4; background: #14110f; color: #f3f1ee; padding: clamp(72px, 10vw, 150px) clamp(24px, 5vw, 72px);">
+    <div style="max-width: 1500px; margin: 0 auto;">
+      <div data-reveal style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: oklch(0.7 0.15 295);">04</span>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #a8a29b; text-transform: uppercase; letter-spacing: 0.08em;">Let's talk</span>
+      </div>
+      <h2 id="contact-h" data-reveal style="font-size: clamp(30px, 4.2vw, 60px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; margin: 0 0 clamp(40px, 5vw, 70px); max-width: 1000px;">Point your team at docs your developers, and their agents, actually ship from.</h2>
+
+      <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;">
+        <a class="contact-card" href="mailto:demiladeakins@gmail.com" data-reveal style="text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 8px; border: 1px solid rgba(243,241,238,0.16); border-radius: 16px; padding: clamp(24px, 2.5vw, 34px);">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a8a29b;">EMAIL</span>
+          <span style="font-size: clamp(18px, 1.7vw, 22px); font-weight: 600;">demiladeakins@gmail.com <span style="color: oklch(0.7 0.15 295);">↗</span></span>
+        </a>
+        <a class="contact-card" href="https://x.com/rookie_of_Ph" target="_blank" rel="noopener" data-reveal style="text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 8px; border: 1px solid rgba(243,241,238,0.16); border-radius: 16px; padding: clamp(24px, 2.5vw, 34px);">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a8a29b;">X / TWITTER DM</span>
+          <span style="font-size: clamp(18px, 1.7vw, 22px); font-weight: 600;">@rookie_of_Ph <span style="color: oklch(0.7 0.15 295);">↗</span></span>
+        </a>
+        <a class="contact-card" href="https://t.me/damitheG" target="_blank" rel="noopener" data-reveal style="text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 8px; border: 1px solid rgba(243,241,238,0.16); border-radius: 16px; padding: clamp(24px, 2.5vw, 34px);">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a8a29b;">TELEGRAM</span>
+          <span style="font-size: clamp(18px, 1.7vw, 22px); font-weight: 600;">@damitheG <span style="color: oklch(0.7 0.15 295);">↗</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position: relative; z-index: 4; background: #14110f; color: #a8a29b; padding: 0 clamp(24px, 5vw, 72px) 48px;">
+    <div style="max-width: 1500px; margin: 0 auto; border-top: 1px solid rgba(243,241,238,0.12); padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+      <span>© 2026 The L0 Guy</span>
+      <a href="llms.txt" style="color: oklch(0.72 0.14 295); text-decoration: none; border-bottom: 1px solid oklch(0.72 0.14 295 / 0.4); padding-bottom: 2px;">/llms.txt · the agent-readable read of this page</a>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  (function () {
+    var root = document.querySelector('[data-l0root]');
+    if (!root) return;
+    var reveals = root.querySelectorAll('[data-reveal]');
+    if (!('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('l0in'); });
+      return;
+    }
+    reveals.forEach(function (el) {
+      var sibs = Array.prototype.filter.call(el.parentElement.children, function (c) { return c.hasAttribute('data-reveal'); });
+      el.__l0delay = Math.max(0, sibs.indexOf(el)) * 90;
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var el = e.target;
+          setTimeout(function () { el.classList.add('l0in'); }, el.__l0delay || 0);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    reveals.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
