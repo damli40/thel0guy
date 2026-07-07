@@ -18,10 +18,10 @@ Technical content for crypto-infrastructure teams: I make complex protocol mecha
 
 ## Proof
 
-- OFT Sentinel — an autonomous trust-intelligence agent and the entire narrative around it; top 120 of 576 in Mantle's Turing Test Hackathon. The README and product are a writing sample: complex security mechanics, made clear. https://oft-sentinel.netlify.app
+- OFT Sentinel — an autonomous trust-intelligence agent and the entire narrative around it; top 30 of 576 in Mantle's Turing Test Hackathon, presented live at Demo Day. The README and product are a writing sample: complex security mechanics, made clear. https://oft-sentinel.netlify.app
 - The fee switch as a governance weapon — surfaced a competitive war most ZRO holders never saw. https://x.com/rookie_of_Ph/status/2013626693873783041
 - DVNs are the ISPs of crypto — reframed a $100M infrastructure opportunity in one analogy. https://x.com/rookie_of_Ph/status/2001921578393833861
-- Stats: 2 years as a top LayerZero voice; single posts regularly clearing thousands of views; top 120 of 576 at the Mantle hackathon.
+- Stats: 2 years as a top LayerZero voice; single posts regularly clearing thousands of views; top 30 of 576 at the Mantle hackathon, presented live at Demo Day.
 
 ## What I deliver
 
