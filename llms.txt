@@ -1,31 +1,31 @@
 # The L0 Guy
 
-> Technical content that turns protocols into integrations. A writer who understands protocol internals AND can write them clearly — for the developers and the coding agents now building from docs.
+> Technical content that turns protocols into integrations. A writer who understands protocol internals AND can write them clearly — for the developers and the coding agents now building from docs. Also: the agent cost of your docs, measured in dollars, not guessed.
 
-Name: The L0 Guy (handle). Two years inside LayerZero (Legend role, community council member). Builder of OFT Sentinel.
+Name: The L0 Guy (handle). Two years inside LayerZero (Legend role, community council member). Builder of OFT Sentinel, winner of Mantle's Turing Test Hackathon ($17K, 576 entries).
 Site: https://damli40.github.io/thel0guy/
 
 ## Offer
 
-Technical content for crypto-infrastructure teams: I make complex protocol mechanics impossible to misunderstand — for the humans reading the docs and for the coding agents (Claude Code, Cursor) that now fetch those docs to write integrations. Single conversion action: get in touch.
+Technical content for crypto-infrastructure teams: I make complex protocol mechanics impossible to misunderstand — for the humans reading the docs and for the coding agents (Claude Code, Cursor) that now fetch those docs to write integrations. Lead offer: the agent cost audit — I run your docs and toolchain through a controlled multi-arm agent harness and hand you a measured table of what your current doc surface costs an agent per working integration, in dollars and minutes, then build the curated layer that fixes it. Single conversion action: get in touch.
 
 ## Why teams bring me in (value props)
 
-1. Your docs are now read by agents, not just developers. A growing share of integrations start with someone pointing a coding agent at your docs; if that surface is ambiguous, the agent doesn't bounce — it ships the wrong config. I write docs both humans and agents parse correctly, and structure the agent-readable layer so the right integration gets generated. (This is the core differentiator.)
+1. Your docs are now read by agents, not just developers — and I measure what they cost. A growing share of integrations start with someone pointing a coding agent at your docs; if that surface is ambiguous, the agent doesn't bounce — it ships the wrong config. In a controlled four-arm experiment on a smart-contract toolchain (same model, same prompt, pass/fail decided by rerunning the test suite in a clean container), the same task cost ~6x more per working integration without a curated docs layer, at 5x the wall clock. I write docs both humans and agents parse correctly, structure the agent-readable layer, and prove the difference with numbers. (This is the core differentiator.)
 2. Your docs are your developer funnel. The hardest part of infra growth is getting people to understand the tech well enough to build on it. I write the explainer that turns "I don't get it" into "I shipped it."
 3. I'm the rare overlap. Engineers who understand the protocol usually can't write; writers who can write usually don't understand it. I do both, with two years of public proof.
 4. I translate infra into capital and adoption. My work has made fee-switch dynamics, DVN economics, and omnichain trust legible to thousands of sophisticated readers.
 
 ## Proof
 
-- OFT Sentinel — an autonomous trust-intelligence agent and the entire narrative around it; top 30 of 576 in Mantle's Turing Test Hackathon, presented live at Demo Day. The README and product are a writing sample: complex security mechanics, made clear. https://oft-sentinel.netlify.app
+- OFT Sentinel — an autonomous trust-intelligence agent and the entire narrative around it; WINNER of Mantle's Turing Test Hackathon ($17K across track first prize and the community vote, from 576 entries; announcement: https://x.com/Mantle_Official/status/2075596029408514552). The README and product are a writing sample: complex security mechanics, made clear. https://oft-sentinel.netlify.app
 - The fee switch as a governance weapon — surfaced a competitive war most ZRO holders never saw. https://x.com/rookie_of_Ph/status/2013626693873783041
 - DVNs are the ISPs of crypto — reframed a $100M infrastructure opportunity in one analogy. https://x.com/rookie_of_Ph/status/2001921578393833861
-- Stats: 2 years as a top LayerZero voice; single posts regularly clearing thousands of views; top 30 of 576 at the Mantle hackathon, presented live at Demo Day.
+- Stats: 2 years as a top LayerZero voice; single posts regularly clearing thousands of views; winner of the Mantle Turing Test Hackathon, $17K, from 576 entries.
 
 ## What I deliver
 
-Integration & developer guides; protocol docs; technical explainers; agent-readable doc structure (llms.txt / clean reads); strategic research content.
+Agent cost audit (measured, multi-arm, test-suite-verified); agent-readable doc structure (llms.txt / clean reads); integration & developer guides; protocol docs; technical explainers; strategic research content.
 
 ## Contact
 
