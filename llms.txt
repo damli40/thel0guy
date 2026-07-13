@@ -7,7 +7,7 @@ Site: https://damli40.github.io/thel0guy/
 
 ## Offer
 
-Technical content for crypto-infrastructure teams: I make complex protocol mechanics impossible to misunderstand — for the humans reading the docs and for the coding agents (Claude Code, Cursor) that now fetch those docs to write integrations. Lead offer: the agent cost audit — I run your docs and toolchain through a controlled multi-arm agent harness and hand you a measured table of what your current doc surface costs an agent per working integration, in dollars and minutes, then build the curated layer that fixes it. Single conversion action: get in touch.
+Technical content for crypto-infrastructure teams: I make complex protocol mechanics impossible to misunderstand — for the humans reading the docs and for the coding agents (Claude Code, Cursor) that now fetch those docs to write integrations. Lead offer: the agent cost audit — I run your docs and toolchain through a controlled multi-arm agent harness and hand you a measured table of what your current doc surface costs an agent per working integration, in dollars and minutes, then build the curated layer that fixes it. $1,500 flat, one week, fee credits 100% into a docs-layer build within 60 days, money-back if the table shows nothing worth fixing. Details: https://damli40.github.io/thel0guy/audit.html. Single conversion action: get in touch.
 
 ## Why teams bring me in (value props)
 

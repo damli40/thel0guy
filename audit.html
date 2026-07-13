@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Agent Cost Audit · $1,500 flat · The L0 Guy</title>
+<link rel="canonical" href="https://damli40.github.io/thel0guy/audit.html" />
+<meta name="description" content="One week. Your toolchain runs through a controlled multi-arm agent harness. You get a measured table of what your docs cost a coding agent per working integration, in dollars and minutes, plus the prioritized fixes. $1,500 flat, credits 100% into a docs-layer build." />
+<meta property="og:title" content="The Agent Cost Audit · $1,500 flat" />
+<meta property="og:description" content="A measured table of what your docs cost coding agents per working integration. Measured, not estimated." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://damli40.github.io/thel0guy/audit.html" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f3f1ee; color: #14110f; font-family: 'Schibsted Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 48px); }
+  a { color: inherit; }
+  .btn { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; background: #14110f; color: #f3f1ee; font-size: 16px; font-weight: 600; padding: 15px 26px; border-radius: 100px; transition: background .2s; }
+  .btn:hover { background: oklch(0.5 0.18 295); }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.55 0.18 295); }
+  h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 18px; }
+  p { font-size: 16.5px; line-height: 1.6; color: #2c2823; }
+  .dim { color: #6b645e; }
+  section { padding: clamp(36px, 6vw, 64px) 0; border-bottom: 1px solid #ddd6cc; }
+  table { border-collapse: collapse; width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #e3ddd4; }
+  th { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6b645e; font-weight: 500; }
+  td.num { font-variant-numeric: tabular-nums; }
+  .card { background: #fff; border: 1px solid #e3ddd4; border-radius: 16px; padding: clamp(20px, 3vw, 30px); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 700px) { .steps { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 28px clamp(24px, 5vw, 48px); max-width: 880px; margin: 0 auto;">
+  <a href="index.html" style="display: flex; align-items: center; gap: 11px; text-decoration: none;">
+    <span class="mono" style="width: 30px; height: 30px; border-radius: 50%; background: #14110f; color: #f3f1ee; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px;">L0</span>
+    <span class="mono" style="font-size: 13px; font-weight: 500;">The L0 Guy</span>
+  </a>
+  <a class="mono" href="index.html" style="font-size: 13px; color: #4a443f; text-decoration: none;">← portfolio</a>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section style="border-bottom: 1px solid #ddd6cc;">
+    <div class="tag">the agent cost audit</div>
+    <h1 style="font-size: clamp(38px, 6vw, 64px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin: 14px 0 20px;">your docs have a dollar cost per integration. i put a number on it.</h1>
+    <p style="max-width: 60ch;">a growing share of your integrations start with a developer pointing claude code or cursor at your docs. when the docs are ambiguous, the agent doesn't bounce. it grinds, burns tokens, and sometimes ships the wrong config. nobody on your team can see this happening. the audit makes it visible, in dollars and minutes, measured against your own test suite.</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 28px;">
+      <a class="btn" href="#start">start an audit ↗</a>
+      <span class="mono" style="font-size: 14px;"><strong>$1,500 flat</strong> · one week · credits 100% into the fix</span>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section>
+    <h2>what you get</h2>
+    <p style="max-width: 62ch;">i run your toolchain through a controlled multi-arm agent harness: the same model builds the same real integration task with and without your docs in context, multiple runs per arm. pass or fail is decided by rerunning your test suite in a clean container. what the model claims is not evidence.</p>
+    <div class="card" style="margin: 18px 0;">
+      <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.9; color: #2c2823;">
+        <li>a measured table: cost, wall clock, turns, and tool calls per working integration, per arm</li>
+        <li>the gap map: which questions your docs answer, which ones send the agent digging through source</li>
+        <li>a prioritized fix list, specific enough to hand to whoever writes your docs</li>
+        <li>a one-hour walkthrough call, findings first, no slides</li>
+      </ul>
+    </div>
+    <p class="dim" style="font-size: 14.5px;">every number in the report comes from the provider's own billing fields, summed. measured, not estimated.</p>
+  </section>
+
+  <!-- THE METHOD, PROVEN -->
+  <section>
+    <h2>the method is public</h2>
+    <p style="max-width: 62ch;">i built the harness by running a 40-run controlled experiment on a smart-contract toolchain. four arms, same prompt, test-suite oracle. the short version:</p>
+    <div class="card" style="overflow-x: auto; margin: 18px 0;">
+      <table>
+        <thead><tr><th>setup</th><th>median cost / working integration</th><th>median time</th></tr></thead>
+        <tbody>
+          <tr><td>bare model</td><td class="num">$0.57</td><td class="num">311s</td></tr>
+          <tr><td>+ retrieval tool</td><td class="num">$0.10</td><td class="num">156s</td></tr>
+          <tr><td>+ curated docs</td><td class="num">$0.09</td><td class="num">60s</td></tr>
+          <tr><td><strong>+ docs and retrieval</strong></td><td class="num"><strong>$0.09</strong></td><td class="num"><strong>70s</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="max-width: 62ch;">bad context cost about 6x per working integration and 5x the clock. on a second task chosen outside the docs' coverage, docs alone lost nearly all their edge while docs plus retrieval stayed cheapest and fastest. that boundary is exactly what the audit finds in your docs. a full public sample audit of a well-known toolchain is coming; ask and i'll send the current writeup.</p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <h2>how it works</h2>
+    <div class="steps">
+      <div class="card"><div class="tag">day 1</div><p style="margin: 10px 0 0; font-size: 15px;">15-minute call. we pick the integration task and confirm read access to your public docs and repo. one requirement: a test suite the harness can rerun. no test suite, no audit (i can scaffold a thin one first, scoped separately).</p></div>
+      <div class="card"><div class="tag">day 5</div><p style="margin: 10px 0 0; font-size: 15px;">the report lands: measured table, gap map, prioritized fixes. self-contained link, no login, forwardable to your team.</p></div>
+      <div class="card"><div class="tag">day 7</div><p style="margin: 10px 0 0; font-size: 15px;">walkthrough call. findings first. what to fix, in what order, and what it should cost you.</p></div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section>
+    <h2>the deal</h2>
+    <div class="card">
+      <p style="margin-top: 0;"><span class="mono" style="font-size: 26px; font-weight: 600;">$1,500</span> <span class="dim">flat. no hourly meter.</span></p>
+      <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.9; color: #2c2823;">
+        <li><strong>the credit:</strong> the full fee credits into a docs-layer build if you start one within 60 days. the audit becomes free the moment you act on it.</li>
+        <li><strong>the guarantee:</strong> if the table shows nothing worth fixing, you get your money back. i can offer that because the measurement decides, not me.</li>
+        <li><strong>access:</strong> public docs plus read-only repo access. nothing retained after delivery.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- START -->
+  <section id="start" style="border-bottom: none;">
+    <h2>start an audit</h2>
+    <p style="max-width: 60ch;">send answers to three questions. i reply within a day with a yes or an honest no.</p>
+    <ol class="mono" style="font-size: 14px; line-height: 2; color: #2c2823; padding-left: 22px;">
+      <li>which toolchain / docs should the agent build against?</li>
+      <li>where do you think developers stall today?</li>
+      <li>do you have a test suite the result can be verified against?</li>
+    </ol>
+    <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px;">
+      <a class="btn" href="mailto:demiladeakins@gmail.com?subject=agent%20cost%20audit">email ↗</a>
+      <a class="btn" style="background: transparent; color: #14110f; border: 1.5px solid #14110f;" href="https://t.me/damitheG" target="_blank" rel="noopener">telegram ↗</a>
+    </div>
+    <p class="dim" style="font-size: 13.5px; margin-top: 26px;">who's behind this: two years inside layerzero (legend role, community council). built oft sentinel, winner of mantle's turing test hackathon, $17k, from 576 entries. <a href="index.html">full portfolio</a>.</p>
+  </section>
+
+</main>
+
+<footer style="padding: 28px clamp(24px, 5vw, 48px) 48px; max-width: 880px; margin: 0 auto;">
+  <div class="mono" style="border-top: 1px solid #ddd6cc; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #6b645e;">
+    <span>© 2026 The L0 Guy</span>
+    <a href="llms.txt" style="color: oklch(0.45 0.14 295);">/llms.txt</a>
+  </div>
+</footer>
+
+</body>
+</html>

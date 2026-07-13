@@ -76,6 +76,7 @@
         <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.02em; font-weight: 500;">The L0 Guy</span>
       </a>
       <nav class="top-nav" style="display: flex; gap: 26px;">
+        <a class="nav-link" href="audit.html" style="text-decoration: none; color: oklch(0.42 0.14 295); font-size: 15px; font-weight: 600;">The Audit</a>
         <a class="nav-link" href="#why" style="text-decoration: none; color: #4a443f; font-size: 15px; font-weight: 500;">Why me</a>
         <a class="nav-link" href="#proof" style="text-decoration: none; color: #4a443f; font-size: 15px; font-weight: 500;">Proof</a>
         <a class="nav-link" href="#deliver" style="text-decoration: none; color: #4a443f; font-size: 15px; font-weight: 500;">Deliver</a>
@@ -148,7 +149,7 @@
         <div>
           <h3 style="font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin: 0 0 14px;">Your docs are now read by agents, not just developers. And I can measure what they cost.</h3>
           <p style="font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #c9c3bc; max-width: 760px; margin: 0 0 14px;">A growing share of integrations start with someone pointing Claude Code or Cursor at your docs, and agents fetch your context, then write the integration from it. If that surface is ambiguous, the agent doesn't bounce, it ships the wrong config. I write docs both humans and coding agents parse correctly, and structure the agent-readable layer so the right integration gets generated.</p>
-          <p style="font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #c9c3bc; max-width: 760px; margin: 0;">This is measured, not claimed: in a controlled four-arm experiment I ran on a smart-contract toolchain, the same model on the same task cost <strong style="color: #f3f1ee;">~6x more per working integration</strong> without a curated docs layer, at 5x the wall clock, verified by rerunning the test suite in a clean container. The audit runs your docs through the same harness and hands you the table.</p>
+          <p style="font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; color: #c9c3bc; max-width: 760px; margin: 0;">This is measured, not claimed: in a controlled four-arm experiment I ran on a smart-contract toolchain, the same model on the same task cost <strong style="color: #f3f1ee;">~6x more per working integration</strong> without a curated docs layer, at 5x the wall clock, verified by rerunning the test suite in a clean container. <a href="audit.html" style="color: oklch(0.78 0.15 295);">The audit</a> runs your docs through the same harness and hands you the table.</p>
         </div>
       </div>
 
@@ -228,7 +229,7 @@
           <h2 id="deliver-h" style="font-size: clamp(32px, 5vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; margin: 0;">What I deliver</h2>
         </div>
         <div data-reveal style="display: flex; flex-wrap: wrap; gap: 12px;">
-          <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: oklch(0.55 0.18 295); color: #fff; border: 1px solid oklch(0.55 0.18 295); border-radius: 100px;">Agent cost audit · measured</span>
+          <a href="audit.html" style="text-decoration: none; font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: oklch(0.55 0.18 295); color: #fff; border: 1px solid oklch(0.55 0.18 295); border-radius: 100px;">Agent cost audit · measured ↗</a>
           <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: #fff; border: 1px solid #e3ddd4; border-radius: 100px;">Agent-readable doc structure</span>
           <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: #fff; border: 1px solid #e3ddd4; border-radius: 100px;">Integration &amp; developer guides</span>
           <span style="font-size: clamp(17px, 1.7vw, 22px); font-weight: 600; letter-spacing: -0.01em; padding: 12px 22px; background: #fff; border: 1px solid #e3ddd4; border-radius: 100px;">Protocol docs</span>
