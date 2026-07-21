@@ -48,6 +48,10 @@
   .contact-card { transition: border-color .2s, background .2s; }
   .contact-card:hover { border-color: oklch(0.6 0.18 295); background: oklch(0.55 0.18 295 / 0.08); }
 
+  /* mobile nav: hidden on desktop, hamburger takes over below 860px */
+  .nav-toggle { display: none; }
+  .mobile-menu { display: none; }
+
   /* responsive: collapse the desktop layout to the mobile design */
   @media (max-width: 860px) {
     .top-nav { display: none !important; }
@@ -61,6 +65,14 @@
     .wedge-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
     .watermark { font-size: 40vw !important; top: 16vh !important; }
     .scrollrow { display: none !important; }
+
+    .header-link { display: none !important; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; padding: 0; border: 1px solid #ddd6cc; border-radius: 10px; background: transparent; color: #14110f; font-size: 17px; line-height: 1; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .mobile-menu { position: absolute; top: calc(100% - 10px); left: clamp(24px, 5vw, 72px); right: clamp(24px, 5vw, 72px); flex-direction: column; gap: 2px; background: #14110f; border-radius: 14px; padding: 10px; z-index: 30; box-shadow: 0 22px 55px rgba(20,17,15,0.28); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: #f3f1ee; text-decoration: none; font-size: 16px; font-weight: 600; padding: 13px 16px; border-radius: 9px; }
+    .mobile-menu a:hover, .mobile-menu a:focus { background: rgba(243,241,238,0.08); outline: none; }
+    .mobile-menu a.cta { background: oklch(0.55 0.18 295); margin-top: 4px; }
   }
 </style>
 </head>
@@ -84,6 +96,15 @@
       </nav>
     </div>
     <a class="header-link" href="#contact" style="display: inline-flex; align-items: center; gap: 7px; text-decoration: none; color: #14110f; font-size: 15px; font-weight: 600; border-bottom: 1.5px solid #14110f; padding-bottom: 3px;">Get in touch <span style="font-family: 'JetBrains Mono', monospace;">↗</span></a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Site">
+      <a href="audit.html">The Audit</a>
+      <a href="findings/">Findings</a>
+      <a href="check/">Free check</a>
+      <a href="#proof">Proof</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#contact">Get in touch ↗</a>
+    </nav>
   </header>
 
   <!-- HERO -->
@@ -300,6 +321,23 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
     reveals.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+<script>
+  (function () {
+    var t = document.getElementById('navToggle');
+    var m = document.getElementById('mobileMenu');
+    if (!t || !m) return;
+    function set(open) {
+      m.classList.toggle('open', open);
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      t.textContent = open ? '✕' : '☰';
+    }
+    t.addEventListener('click', function (e) { e.stopPropagation(); set(!m.classList.contains('open')); });
+    m.addEventListener('click', function (e) { if (e.target.tagName === 'A') set(false); });
+    document.addEventListener('click', function (e) { if (m.classList.contains('open') && !m.contains(e.target) && e.target !== t) set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
   })();
 </script>
 </body>
