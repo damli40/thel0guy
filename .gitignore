@@ -1,0 +1,7 @@
+# Internal working docs — never publish to the public GitHub Pages site.
+# social-plan.html is a full, unredacted marketing strategy (audience notes,
+# kill-criteria, pricing intel). Keep it local-only.
+social-plan.html
+
+# macOS noise
+.DS_Store

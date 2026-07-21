@@ -51,84 +51,88 @@
   <!-- HERO -->
   <section style="border-bottom: 1px solid #ddd6cc;">
     <div class="tag">the agent cost audit</div>
-    <h1 style="font-size: clamp(38px, 6vw, 64px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin: 14px 0 20px;">your docs have a dollar cost per integration. i put a number on it.</h1>
-    <p style="max-width: 60ch;">a growing share of your integrations start with a developer pointing claude code or cursor at your docs. when the docs are ambiguous, the agent doesn't bounce. it grinds, burns tokens, and sometimes ships the wrong config. nobody on your team can see this happening. the audit makes it visible, in dollars and minutes, measured against your own test suite.</p>
+    <h1 style="font-size: clamp(38px, 6vw, 64px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin: 14px 0 20px;">Your docs have a dollar cost per integration. I put a number on it.</h1>
+    <p style="max-width: 60ch;">A growing share of your integrations start with a developer pointing Claude Code or Cursor at your docs. When the docs are ambiguous, the agent doesn't bounce. It grinds, burns tokens, and sometimes ships the wrong config. Nobody on your team can see this happening. The audit makes it visible, in dollars and minutes, measured against your own test suite.</p>
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 28px;">
-      <a class="btn" href="#start">start an audit ↗</a>
+      <a class="btn" href="#start">Start an audit ↗</a>
       <span class="mono" style="font-size: 14px;"><strong>$1,500 flat</strong> · one week · credits 100% into the fix</span>
     </div>
   </section>
 
   <!-- WHAT YOU GET -->
   <section>
-    <h2>what you get</h2>
-    <p style="max-width: 62ch;">i run your toolchain through a controlled multi-arm agent harness: the same model builds the same real integration task with and without your docs in context, multiple runs per arm. pass or fail is decided by rerunning your test suite in a clean container. what the model claims is not evidence.</p>
+    <h2>What you get</h2>
+    <p style="max-width: 62ch;">I run your toolchain through a controlled multi-arm agent harness. For each frontier model your developers use, the same model builds the same real integration task with and without your docs in context, multiple runs per arm. Pass or fail is decided by rerunning your test suite in a clean container. What the model claims is not evidence.</p>
     <div class="card" style="margin: 18px 0;">
       <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.9; color: #2c2823;">
-        <li>a measured table: cost, wall clock, turns, and tool calls per working integration, per arm</li>
-        <li>the gap map: which questions your docs answer, which ones send the agent digging through source</li>
-        <li>a prioritized fix list, specific enough to hand to whoever writes your docs</li>
-        <li>a one-hour walkthrough call, findings first, no slides</li>
+        <li>A measured table: cost, wall clock, turns, and tool calls per working integration, per arm</li>
+        <li>Per-model coverage: pick up to three frontier labs (Claude, GPT, Gemini), one flagship model each. Separate tables, so you see which model your docs trip up</li>
+        <li>The gap map: which questions your docs answer, which ones send the agent digging through source</li>
+        <li>A prioritized fix list, specific enough to hand to whoever writes your docs</li>
+        <li>A one-hour walkthrough call, findings first, no slides</li>
       </ul>
     </div>
-    <p class="dim" style="font-size: 14.5px;">every number in the report comes from the provider's own billing fields, summed. measured, not estimated.</p>
+    <p class="dim" style="font-size: 14.5px;">Every number in the report comes from the provider's own billing fields, summed. Measured, not estimated.</p>
   </section>
 
   <!-- THE METHOD, PROVEN -->
   <section>
-    <h2>the method is public</h2>
-    <p style="max-width: 62ch;">i built the harness by running a 40-run controlled experiment on a smart-contract toolchain. four arms, same prompt, test-suite oracle. the short version:</p>
+    <h2>The method is public</h2>
+    <p style="max-width: 62ch;">I built the harness by running a 40-run controlled experiment on a smart-contract toolchain. Four arms, same prompt, test-suite oracle. The short version:</p>
     <div class="card" style="overflow-x: auto; margin: 18px 0;">
       <table>
         <thead><tr><th>setup</th><th>median cost / working integration</th><th>median time</th></tr></thead>
         <tbody>
-          <tr><td>bare model</td><td class="num">$0.57</td><td class="num">311s</td></tr>
+          <tr><td>Bare model</td><td class="num">$0.57</td><td class="num">311s</td></tr>
           <tr><td>+ retrieval tool</td><td class="num">$0.10</td><td class="num">156s</td></tr>
           <tr><td>+ curated docs</td><td class="num">$0.09</td><td class="num">60s</td></tr>
           <tr><td><strong>+ docs and retrieval</strong></td><td class="num"><strong>$0.09</strong></td><td class="num"><strong>70s</strong></td></tr>
         </tbody>
       </table>
     </div>
-    <p style="max-width: 62ch;">bad context cost about 6x per working integration and 5x the clock. on a second task chosen outside the docs' coverage, docs alone lost nearly all their edge while docs plus retrieval stayed cheapest and fastest. that boundary is exactly what the audit finds in your docs. a full public sample audit of a well-known toolchain is coming; ask and i'll send the current writeup.</p>
+    <p style="max-width: 62ch;">Bad context cost about 6x per working integration and 5x the clock. On a second task chosen outside the docs' coverage, docs alone lost nearly all their edge while docs plus retrieval stayed cheapest and fastest. That boundary is exactly what the audit finds in your docs. The full writeup is public: <a href="findings/agent-cost-experiment/" style="border-bottom: 1px solid oklch(0.55 0.18 295);">read the agent cost experiment</a>. A public sample audit of a well-known toolchain lands soon.</p>
   </section>
 
   <!-- HOW IT WORKS -->
   <section>
-    <h2>how it works</h2>
+    <h2>How it works</h2>
     <div class="steps">
-      <div class="card"><div class="tag">day 1</div><p style="margin: 10px 0 0; font-size: 15px;">15-minute call. we pick the integration task and confirm read access to your public docs and repo. one requirement: a test suite the harness can rerun. no test suite, no audit (i can scaffold a thin one first, scoped separately).</p></div>
-      <div class="card"><div class="tag">day 5</div><p style="margin: 10px 0 0; font-size: 15px;">the report lands: measured table, gap map, prioritized fixes. self-contained link, no login, forwardable to your team.</p></div>
-      <div class="card"><div class="tag">day 7</div><p style="margin: 10px 0 0; font-size: 15px;">walkthrough call. findings first. what to fix, in what order, and what it should cost you.</p></div>
+      <div class="card"><div class="tag">day 1</div><p style="margin: 10px 0 0; font-size: 15px;">15-minute call. We pick the integration task and the models your developers use, and confirm read access to your public docs and repo. One requirement: a test suite the harness can rerun. No test suite, no audit (I can scaffold a thin one first, scoped separately).</p></div>
+      <div class="card"><div class="tag">day 5</div><p style="margin: 10px 0 0; font-size: 15px;">The report lands: measured table, gap map, prioritized fixes. Self-contained link, no login, forwardable to your team.</p></div>
+      <div class="card"><div class="tag">day 7</div><p style="margin: 10px 0 0; font-size: 15px;">Walkthrough call. Findings first. What to fix, in what order, and what it should cost you.</p></div>
     </div>
   </section>
 
   <!-- PRICE -->
   <section>
-    <h2>the deal</h2>
+    <h2>The deal</h2>
     <div class="card">
-      <p style="margin-top: 0;"><span class="mono" style="font-size: 26px; font-weight: 600;">$1,500</span> <span class="dim">flat. no hourly meter.</span></p>
+      <p style="margin-top: 0;"><span class="mono" style="font-size: 26px; font-weight: 600;">$1,500</span> <span class="dim">flat. No hourly meter.</span></p>
       <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.9; color: #2c2823;">
-        <li><strong>the credit:</strong> the full fee credits into a docs-layer build if you start one within 60 days. the audit becomes free the moment you act on it.</li>
-        <li><strong>the guarantee:</strong> if the table shows nothing worth fixing, you get your money back. i can offer that because the measurement decides, not me.</li>
-        <li><strong>access:</strong> public docs plus read-only repo access. nothing retained after delivery.</li>
+        <li><strong>The credit:</strong> the full fee credits into a <a href="build/" style="border-bottom: 1px solid oklch(0.55 0.18 295);">docs-layer build</a> if you start one within 60 days. The audit becomes free the moment you act on it.</li>
+        <li><strong>The SLA:</strong> the report lands in seven days or the audit is free.</li>
+        <li><strong>The floor:</strong> if the table shows nothing worth fixing, you get your money back. The measurement decides, not me.</li>
+        <li><strong>After you fix it:</strong> I re-run the harness within 30 days and confirm the cost dropped. No charge.</li>
+        <li><strong>Access:</strong> public docs plus read-only repo access. Nothing retained after delivery.</li>
       </ul>
+      <p class="dim" style="font-size: 13.5px; margin: 16px 0 0;">I run a limited number of audits each month. Each one is hands-on.</p>
     </div>
   </section>
 
   <!-- START -->
   <section id="start" style="border-bottom: none;">
-    <h2>start an audit</h2>
-    <p style="max-width: 60ch;">send answers to three questions. i reply within a day with a yes or an honest no.</p>
+    <h2>Start an audit</h2>
+    <p style="max-width: 60ch;">Send answers to three questions. I reply within a day with a yes or an honest no.</p>
     <ol class="mono" style="font-size: 14px; line-height: 2; color: #2c2823; padding-left: 22px;">
-      <li>which toolchain / docs should the agent build against?</li>
-      <li>where do you think developers stall today?</li>
-      <li>do you have a test suite the result can be verified against?</li>
+      <li>Which toolchain / docs should the agent build against?</li>
+      <li>Where do you think developers stall today?</li>
+      <li>Do you have a test suite the result can be verified against?</li>
     </ol>
     <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px;">
-      <a class="btn" href="mailto:demiladeakins@gmail.com?subject=agent%20cost%20audit">email ↗</a>
-      <a class="btn" style="background: transparent; color: #14110f; border: 1.5px solid #14110f;" href="https://t.me/damitheG" target="_blank" rel="noopener">telegram ↗</a>
+      <a class="btn" href="mailto:demiladeakins@gmail.com?subject=agent%20cost%20audit">Email ↗</a>
+      <a class="btn" style="background: transparent; color: #14110f; border: 1.5px solid #14110f;" href="https://t.me/damitheG" target="_blank" rel="noopener">Telegram ↗</a>
     </div>
-    <p class="dim" style="font-size: 13.5px; margin-top: 26px;">who's behind this: two years inside layerzero (legend role, community council). built oft sentinel, winner of mantle's turing test hackathon, $17k, from 576 entries. <a href="index.html">full portfolio</a>.</p>
+    <p class="dim" style="font-size: 13.5px; margin-top: 26px;">Who's behind this: two years inside LayerZero (Legend role, community council). Built OFT Sentinel, winner of Mantle's Turing Test Hackathon, $17K, from 576 entries. <a href="index.html">Full portfolio</a>.</p>
   </section>
 
 </main>

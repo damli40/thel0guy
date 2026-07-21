@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What bad docs cost a coding agent · 40 runs, measured · The L0 Guy</title>
+<link rel="canonical" href="https://damli40.github.io/thel0guy/findings/agent-cost-experiment/" />
+<meta name="description" content="A 40-run controlled experiment on a smart-contract toolchain. Same model, same task, pass/fail decided by rerunning the test suite in a clean container. Bad context cost about 6x per working integration, at 5x the clock. Measured, not estimated." />
+<meta property="og:title" content="What bad docs cost a coding agent · 40 runs, measured" />
+<meta property="og:description" content="Bad context cost about 6x per working integration, at 5x the clock. The full method behind the agent cost audit, in public." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://damli40.github.io/thel0guy/findings/agent-cost-experiment/" />
+<!-- analytics: add GoatCounter/Plausible snippet here before launch (see site_architecture.md) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f3f1ee; color: #14110f; font-family: 'Schibsted Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 48px); }
+  a { color: inherit; }
+  .btn { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; background: #14110f; color: #f3f1ee; font-size: 16px; font-weight: 600; padding: 15px 26px; border-radius: 100px; transition: background .2s; }
+  .btn:hover { background: oklch(0.5 0.18 295); }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.55 0.18 295); }
+  h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 18px; }
+  p { font-size: 16.5px; line-height: 1.6; color: #2c2823; }
+  .lead { font-size: clamp(18px, 2vw, 21px); color: #2c2823; }
+  .dim { color: #6b645e; }
+  section { padding: clamp(36px, 6vw, 64px) 0; border-bottom: 1px solid #ddd6cc; }
+  table { border-collapse: collapse; width: 100%; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #e3ddd4; }
+  th { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6b645e; font-weight: 500; }
+  td.num { font-variant-numeric: tabular-nums; }
+  .card { background: #fff; border: 1px solid #e3ddd4; border-radius: 16px; padding: clamp(20px, 3vw, 30px); }
+  .big { font-size: clamp(40px, 8vw, 84px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; margin: 0; }
+  .crumb { font-size: 13px; color: #6b645e; }
+  .crumb a { text-decoration: none; border-bottom: 1px solid rgba(107,100,94,0.35); }
+</style>
+</head>
+<body>
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 28px clamp(24px, 5vw, 48px); max-width: 880px; margin: 0 auto;">
+  <a href="../../" style="display: flex; align-items: center; gap: 11px; text-decoration: none;">
+    <span class="mono" style="width: 30px; height: 30px; border-radius: 50%; background: #14110f; color: #f3f1ee; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px;">L0</span>
+    <span class="mono" style="font-size: 13px; font-weight: 500;">The L0 Guy</span>
+  </a>
+  <a class="mono" href="../" style="font-size: 13px; color: #4a443f; text-decoration: none;">← findings</a>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section style="border-bottom: 1px solid #ddd6cc;">
+    <div class="crumb mono"><a href="../../">Home</a> / <a href="../">Findings</a> / Agent cost experiment</div>
+    <div class="tag" style="margin-top: 22px;">finding · measured</div>
+    <h1 style="font-size: clamp(34px, 5.5vw, 60px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; margin: 14px 0 20px;">What bad docs cost a coding agent. 40 runs, measured.</h1>
+    <p class="lead" style="max-width: 60ch;">Integrations don't start with a human reading your docs anymore. They start with a developer pointing Claude Code or Cursor at those docs and letting it build. I wanted the dollar cost of that, so I ran the experiment. Bad context cost about 6x per working integration, at 5x the clock.</p>
+  </section>
+
+  <!-- THE SETUP -->
+  <section>
+    <h2>The setup</h2>
+    <p style="max-width: 62ch;">One real integration task on a smart-contract toolchain. One model. I gave it four different context setups and ran each one many times, 40 scored runs in total.</p>
+    <div class="card" style="margin: 18px 0;">
+      <ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.9; color: #2c2823;">
+        <li><strong>Bare model</strong>: no docs, no tools. Just the model and the task.</li>
+        <li><strong>+ retrieval tool</strong>: the model can search a corpus when it decides it needs to.</li>
+        <li><strong>+ curated docs</strong>: a clean, agent-readable doc layer in context.</li>
+        <li><strong>+ docs and retrieval</strong>: both together.</li>
+      </ul>
+    </div>
+    <p style="max-width: 62ch;">A run passed or failed by one rule: rerun the toolchain's test suite in a clean container and check the result. What the model claimed about its own work counted for nothing. Every cost and timing number came from the provider's own billing fields, summed per run.</p>
+  </section>
+
+  <!-- THE NUMBERS -->
+  <section>
+    <h2>The numbers</h2>
+    <p style="max-width: 62ch;">Median cost and time per <em>working</em> integration, so a cheap run that failed the test suite earns no credit:</p>
+    <div class="card" style="overflow-x: auto; margin: 18px 0;">
+      <table>
+        <thead><tr><th>setup</th><th>median cost / working integration</th><th>median time</th></tr></thead>
+        <tbody>
+          <tr><td>Bare model</td><td class="num">$0.57</td><td class="num">311s</td></tr>
+          <tr><td>+ retrieval tool</td><td class="num">$0.10</td><td class="num">156s</td></tr>
+          <tr><td>+ curated docs</td><td class="num">$0.09</td><td class="num">60s</td></tr>
+          <tr><td><strong>+ docs and retrieval</strong></td><td class="num"><strong>$0.09</strong></td><td class="num"><strong>70s</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="max-width: 62ch;">The bare model still shipped working integrations. It just paid about 6x more per one and took 5x as long, grinding through turns to reconstruct what a good doc would have handed it in one read. The token cost is real and it never shows up on anyone's dashboard as a docs problem.</p>
+  </section>
+
+  <!-- THE BOUNDARY -->
+  <section>
+    <h2>The part that matters for your docs</h2>
+    <p style="max-width: 62ch;">I ran a second task on purpose outside the docs' coverage. Curated docs alone lost nearly all their edge there, because the answer was not in them and the model had no way to go looking. Docs plus retrieval stayed cheapest and fastest, because the model could reach past the doc when the doc ran out.</p>
+    <p style="max-width: 62ch;">That boundary, the line where your docs stop answering and the agent starts guessing, is the expensive part. It is invisible until someone measures it. Finding it in your docs, in dollars, is what <a href="../../audit.html" style="border-bottom: 1px solid oklch(0.55 0.18 295);">the agent cost audit</a> does.</p>
+  </section>
+
+  <!-- HONESTY -->
+  <section>
+    <h2>What this is and isn't</h2>
+    <div class="card">
+      <ul style="margin: 0; padding-left: 20px; font-size: 15.5px; line-height: 1.85; color: #2c2823;">
+        <li>One toolchain, one model, one point in time. The numbers are directional, not a universal constant.</li>
+        <li>A controlled setup, not your repo. Your docs will have their own gap map, which is the whole point of running the audit on them.</li>
+        <li>Every figure is summed from provider billing fields against a test-suite oracle. Measured, not estimated. I would rather show you the method than a bigger headline.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="border-bottom: none;">
+    <h2>Run this on your docs</h2>
+    <p style="max-width: 60ch;">This experiment is the method behind the audit. Point it at your toolchain and you get your own table: cost, time, and the exact questions your docs leave an agent guessing at.</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 22px;">
+      <a class="btn" href="../../audit.html">The agent cost audit ↗</a>
+      <span class="mono dim" style="font-size: 14px;">$1,500 flat · one week · credits into the fix</span>
+    </div>
+    <p class="dim" style="font-size: 14px; margin-top: 24px;">Not ready to talk? <a href="../../check/" style="border-bottom: 1px solid rgba(107,100,94,0.4);">Run the free 5-minute check</a> on your own docs first.</p>
+  </section>
+
+</main>
+
+<footer style="padding: 28px clamp(24px, 5vw, 48px) 48px; max-width: 880px; margin: 0 auto;">
+  <div class="mono" style="border-top: 1px solid #ddd6cc; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #6b645e;">
+    <span>© 2026 The L0 Guy</span>
+    <a href="../../llms.txt" style="color: oklch(0.45 0.14 295);">/llms.txt</a>
+  </div>
+</footer>
+
+</body>
+</html>

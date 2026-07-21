@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free check · Is your doc surface costing you agent tokens? · The L0 Guy</title>
+<link rel="canonical" href="https://damli40.github.io/thel0guy/check/" />
+<meta name="description" content="A free 5-minute self-check. Run these ten questions against your own docs. No sign-up, no email. The ones you fail are where a coding agent burns tokens and ships the wrong config." />
+<meta property="og:title" content="Free check · Is your doc surface costing you agent tokens?" />
+<meta property="og:description" content="Ten questions, five minutes, no sign-up. The ones you fail are where an agent pays for it." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://damli40.github.io/thel0guy/check/" />
+<!-- analytics: add GoatCounter/Plausible snippet here before launch (see site_architecture.md) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f3f1ee; color: #14110f; font-family: 'Schibsted Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 48px); }
+  a { color: inherit; }
+  .btn { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; background: #14110f; color: #f3f1ee; font-size: 16px; font-weight: 600; padding: 15px 26px; border-radius: 100px; transition: background .2s; }
+  .btn:hover { background: oklch(0.5 0.18 295); }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.55 0.18 295); }
+  h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 18px; }
+  p { font-size: 16.5px; line-height: 1.6; color: #2c2823; }
+  .dim { color: #6b645e; }
+  section { padding: clamp(32px, 5vw, 56px) 0; border-bottom: 1px solid #ddd6cc; }
+
+  .item { display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid #e3ddd4; border-radius: 13px; padding: 16px 18px; margin-bottom: 10px; cursor: pointer; transition: border-color .15s, background .15s; }
+  .item:hover { border-color: oklch(0.6 0.18 295 / 0.5); }
+  .item input { appearance: none; -webkit-appearance: none; flex: 0 0 auto; width: 22px; height: 22px; border: 1.5px solid #b8b0a5; border-radius: 6px; margin: 1px 0 0; cursor: pointer; position: relative; transition: background .15s, border-color .15s; }
+  .item input:checked { background: oklch(0.55 0.18 295); border-color: oklch(0.55 0.18 295); }
+  .item input:checked::after { content: "✓"; color: #fff; font-size: 14px; font-weight: 700; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -52%); }
+  .item span { font-size: 15.5px; line-height: 1.45; color: #2c2823; }
+  .item .q { font-weight: 600; }
+  .item .why { display: block; color: #6b645e; font-size: 13.5px; margin-top: 3px; }
+
+  .scorebar { position: sticky; top: 0; z-index: 5; background: #14110f; color: #f3f1ee; border-radius: 0 0 16px 16px; padding: 16px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .scorebar .count { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 600; }
+  .scorebar .verdict { font-size: 14.5px; color: #c9c3bc; max-width: 60ch; }
+</style>
+</head>
+<body>
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 28px clamp(24px, 5vw, 48px); max-width: 780px; margin: 0 auto;">
+  <a href="../" style="display: flex; align-items: center; gap: 11px; text-decoration: none;">
+    <span class="mono" style="width: 30px; height: 30px; border-radius: 50%; background: #14110f; color: #f3f1ee; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px;">L0</span>
+    <span class="mono" style="font-size: 13px; font-weight: 500;">The L0 Guy</span>
+  </a>
+  <a class="mono" href="../" style="font-size: 13px; color: #4a443f; text-decoration: none;">← portfolio</a>
+</header>
+
+<div class="scorebar" id="scorebar" style="max-width: 780px; margin: 0 auto;">
+  <span class="count"><span id="score">0</span> / 10 clear</span>
+  <span class="verdict" id="verdict">Check the ones that are true for your docs.</span>
+</div>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section>
+    <div class="tag">free · 5 minutes · no sign-up</div>
+    <h1 style="font-size: clamp(32px, 5.5vw, 54px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; margin: 14px 0 18px;">Is your doc surface costing you agent tokens?</h1>
+    <p style="max-width: 60ch;">Run these ten against your own docs. Tick the ones that are already true. No email, nothing to install. The ones you leave unticked are where a coding agent stalls, burns tokens, and sometimes ships the wrong config. That cost is real and it never shows up as a docs problem.</p>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section>
+    <h2>The check</h2>
+    <div id="list">
+      <label class="item"><input type="checkbox"><span><span class="q">Versions are pinned and current.</span><span class="why">An agent reading "install the SDK" with no version picks one, often the wrong one.</span></span></label>
+      <label class="item"><input type="checkbox"><span><span class="q">The config that matters is named, not described.</span><span class="why">"Configure the endpoint appropriately" makes the agent guess. The exact field and value stops that.</span></span></label>
+      <label class="item"><input type="checkbox"><span><span class="q">There is one canonical way to do each task.</span><span class="why">Three half-documented paths for the same thing send the agent down the wrong one.</span></span></label>
+      <label class="item"><input type="checkbox"><span><span class="q">Examples are copy-pasteable and actually run.</span><span class="why">Pseudo-code and "..." placeholders force the agent to invent the missing parts.</span></span></label>
+      <label class="item"><input type="checkbox"><span><span class="q">Error paths are documented.</span><span class="why">When a call fails, does the doc say what to do, or does the agent retry blind and burn turns?</span></span></label>
+      <label class="item"><input type="checkbox"><span><span class="q">Addresses, params, and constants are exact.</span><span class="why">A placeholder contract address or chain ID ships a broken integration that still compiles.</span></span></label>
+      <label class="item"><input type="checkbox"><span><span class="q">The docs answer "how do I X", not just "here is the API".</span><span class="why">A reference lists methods. An agent needs the task-shaped path through them.</span></span></label>
+      <label class="item"><input type="checkbox"><span><span class="q">Deprecated material is marked, not just left up.</span><span class="why">An old page that still ranks in the docs is the answer the agent confidently uses.</span></span></label>
+      <label class="item"><input type="checkbox"><span><span class="q">There is a clean agent-readable read (an llms.txt), and it is wired into agent instructions.</span><span class="why">Shipping the file does nothing on its own. An agent only fetches it when its context points there.</span></span></label>
+      <label class="item"><input type="checkbox"><span><span class="q">A developer can verify the result against a test.</span><span class="why">No way to check the work means the agent, and you, cannot tell a passing integration from a plausible-looking broken one.</span></span></label>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result">
+    <h2>What your score means</h2>
+    <p id="resultText" style="max-width: 62ch;">Tick the boxes above and the read updates. Anything you left unticked is a place an agent pays a tax to work around, on every integration, forever.</p>
+    <p class="dim" style="font-size: 14.5px; max-width: 62ch;">This check is a rough read. The audit is the measured one: it puts a dollar figure on each of these gaps in your actual docs, using your own test suite as the judge.</p>
+  </section>
+
+  <!-- CTA -->
+  <section style="border-bottom: none;">
+    <h2>Get the measured version</h2>
+    <p style="max-width: 60ch;">The agent cost audit runs your toolchain through the same harness behind <a href="../findings/agent-cost-experiment/" style="border-bottom: 1px solid oklch(0.55 0.18 295);">the 40-run experiment</a> and hands you a table: cost, time, and the exact questions your docs leave an agent guessing at.</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 20px;">
+      <a class="btn" href="../audit.html">The agent cost audit ↗</a>
+      <span class="mono dim" style="font-size: 14px;">$1,500 flat · one week · credits into the fix</span>
+    </div>
+  </section>
+
+</main>
+
+<footer style="padding: 28px clamp(24px, 5vw, 48px) 48px; max-width: 780px; margin: 0 auto;">
+  <div class="mono" style="border-top: 1px solid #ddd6cc; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #6b645e;">
+    <span>© 2026 The L0 Guy</span>
+    <a href="../llms.txt" style="color: oklch(0.45 0.14 295);">/llms.txt</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('#list input[type=checkbox]'));
+    var scoreEl = document.getElementById('score');
+    var verdictEl = document.getElementById('verdict');
+    var resultEl = document.getElementById('resultText');
+    function verdict(n) {
+      if (n === 0) return ['Check the ones that are true for your docs.', 'Tick the boxes above and the read updates. Anything you left unticked is a place an agent pays a tax to work around, on every integration.'];
+      if (n <= 4) return [n + ' clear, ' + (10 - n) + ' gaps. An agent is paying for the gaps on every run.', n + ' of ten clear. The other ' + (10 - n) + ' are where a coding agent stalls, guesses, and ships configs you did not intend. This is the profile the audit turns into a dollar figure fastest.'];
+      if (n <= 7) return [n + ' clear, ' + (10 - n) + ' gaps. Solid, with a few expensive holes.', n + ' of ten clear. The remaining ' + (10 - n) + ' are the ones that quietly cost the most, because everything else works well enough to hide them.'];
+      if (n <= 9) return [n + ' clear. Tight docs, one or two soft spots.', n + ' of ten clear. You are ahead of most protocols. The last ' + (10 - n) + ' is usually the boundary case, where the docs stop answering and the agent starts guessing. That is exactly what the audit measures.'];
+      return ['10 / 10 by your own read. Worth measuring against an agent.', 'Ten of ten by self-assessment. The useful question is whether an agent agrees. The audit checks your read against a model actually building from the docs, in dollars.'];
+    }
+    function update() {
+      var n = boxes.filter(function (b) { return b.checked; }).length;
+      scoreEl.textContent = n;
+      var v = verdict(n);
+      verdictEl.textContent = v[0];
+      resultEl.textContent = v[1];
+    }
+    boxes.forEach(function (b) { b.addEventListener('change', update); });
+    update();
+  })();
+</script>
+
+</body>
+</html>

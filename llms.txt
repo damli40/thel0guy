@@ -7,7 +7,11 @@ Site: https://damli40.github.io/thel0guy/
 
 ## Offer
 
-Technical content for crypto-infrastructure teams: I make complex protocol mechanics impossible to misunderstand — for the humans reading the docs and for the coding agents (Claude Code, Cursor) that now fetch those docs to write integrations. Lead offer: the agent cost audit — I run your docs and toolchain through a controlled multi-arm agent harness and hand you a measured table of what your current doc surface costs an agent per working integration, in dollars and minutes, then build the curated layer that fixes it. $1,500 flat, one week, fee credits 100% into a docs-layer build within 60 days, money-back if the table shows nothing worth fixing. Details: https://damli40.github.io/thel0guy/audit.html. Single conversion action: get in touch.
+Technical content for crypto-infrastructure teams: I make complex protocol mechanics impossible to misunderstand — for the humans reading the docs and for the coding agents (Claude Code, Cursor) that now fetch those docs to write integrations. Lead offer: the agent cost audit — I run your docs and toolchain through a controlled multi-arm agent harness and hand you a measured table of what your current doc surface costs an agent per working integration, in dollars and minutes, then build the curated layer that fixes it. The audit runs across the frontier models your developers actually use: you pick up to three labs (Claude, GPT, Gemini), one flagship coding model each, and get a per-model table showing which one your docs trip up. $1,500 flat, one week. Report lands in seven days or the audit is free. Fee credits 100% into a docs-layer build within 60 days. Money-back if the table shows nothing worth fixing. After you ship the fixes, I re-run the harness within 30 days at no charge to confirm the cost dropped. Details: https://damli40.github.io/thel0guy/audit.html. Single conversion action: get in touch.
+
+## The build (what the audit credits into)
+
+The docs-layer build turns the audit's findings into a curated, agent-readable layer, then reruns the harness to prove the cost dropped. Three tiers: Targeted ($8K, ~2 weeks, the single highest-cost path from the audit, curated and re-measured), Complete ($14K, ~4 weeks, the full agent-readable layer across the doc surface plus an integration guide rewrite plus a before/after table across a covered task and a boundary task), and Complete + Kept-current ($14K + $2K/quarter, adds a quarterly re-measure against version drift). The $1,500 audit credits 100% into any tier. Payment is performance-gated: half to start, half only when the re-measured after-table beats the baseline the audit set. Details: https://damli40.github.io/thel0guy/build/
 
 ## Why teams bring me in (value props)
 
@@ -22,6 +26,12 @@ Technical content for crypto-infrastructure teams: I make complex protocol mecha
 - The fee switch as a governance weapon — surfaced a competitive war most ZRO holders never saw. https://x.com/rookie_of_Ph/status/2013626693873783041
 - DVNs are the ISPs of crypto — reframed a $100M infrastructure opportunity in one analogy. https://x.com/rookie_of_Ph/status/2001921578393833861
 - Stats: 2 years as a top LayerZero voice; single posts regularly clearing thousands of views; winner of the Mantle Turing Test Hackathon, $17K, from 576 entries.
+
+## Findings (measured, published in public)
+
+- The agent cost experiment. The full 40-run writeup behind the audit: same model, same task, four context setups, pass/fail decided by rerunning the test suite in a clean container. Bad context cost about 6x per working integration, at 5x the clock. https://damli40.github.io/thel0guy/findings/agent-cost-experiment/
+- Findings index (more measured findings publish here, including a forthcoming full public sample audit of a well-known toolchain): https://damli40.github.io/thel0guy/findings/
+- Free check: a 10-question, 5-minute self-assessment of whether a doc surface is costing agent tokens, no sign-up. A low-commitment entry point that routes to the audit. https://damli40.github.io/thel0guy/check/
 
 ## What I deliver
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Findings · Measured, not estimated · The L0 Guy</title>
+<link rel="canonical" href="https://damli40.github.io/thel0guy/findings/" />
+<meta name="description" content="The measured numbers behind the agent cost audit, published in public. What bad docs cost a coding agent, and the sample audits that put a dollar figure on invisible infra risk." />
+<meta property="og:title" content="Findings · The L0 Guy" />
+<meta property="og:description" content="Measured, not estimated. The numbers behind the audit, in public." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://damli40.github.io/thel0guy/findings/" />
+<!-- analytics: add GoatCounter/Plausible snippet here before launch (see site_architecture.md) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f3f1ee; color: #14110f; font-family: 'Schibsted Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 48px); }
+  a { color: inherit; }
+  .btn { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; background: #14110f; color: #f3f1ee; font-size: 16px; font-weight: 600; padding: 15px 26px; border-radius: 100px; transition: background .2s; }
+  .btn:hover { background: oklch(0.5 0.18 295); }
+  .tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: oklch(0.55 0.18 295); }
+  h1 { font-size: clamp(38px, 6vw, 64px); font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin: 14px 0 20px; }
+  p { font-size: 16.5px; line-height: 1.6; color: #2c2823; }
+  .dim { color: #6b645e; }
+  section { padding: clamp(36px, 6vw, 64px) 0; }
+  .finding { display: block; text-decoration: none; color: inherit; background: #fff; border: 1px solid #e3ddd4; border-radius: 18px; padding: clamp(24px, 3.2vw, 38px); margin-bottom: 16px; transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .finding:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(20,17,15,0.09); border-color: oklch(0.6 0.18 295 / 0.5); }
+  .finding h3 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.12; margin: 12px 0 12px; }
+  .soon { background: transparent; border-style: dashed; cursor: default; }
+  .soon:hover { transform: none; box-shadow: none; border-color: #cfc7bc; }
+  .stat { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #57514b; }
+</style>
+</head>
+<body>
+
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 28px clamp(24px, 5vw, 48px); max-width: 880px; margin: 0 auto;">
+  <a href="../" style="display: flex; align-items: center; gap: 11px; text-decoration: none;">
+    <span class="mono" style="width: 30px; height: 30px; border-radius: 50%; background: #14110f; color: #f3f1ee; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px;">L0</span>
+    <span class="mono" style="font-size: 13px; font-weight: 500;">The L0 Guy</span>
+  </a>
+  <a class="mono" href="../" style="font-size: 13px; color: #4a443f; text-decoration: none;">← portfolio</a>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <section style="border-bottom: 1px solid #ddd6cc;">
+    <div class="tag">findings</div>
+    <h1>Measured, not estimated.</h1>
+    <p style="max-width: 60ch;">I put a dollar number on the infra risk nobody else measures. The exploitable config nobody was watching. The docs quietly costing you agent tokens. These are the ones I can publish in full. Each is the method behind <a href="../audit.html" style="border-bottom: 1px solid oklch(0.55 0.18 295);">the audit</a>, shown in public.</p>
+  </section>
+
+  <!-- LIST -->
+  <section>
+
+    <a class="finding" href="agent-cost-experiment/">
+      <div class="tag">experiment · live</div>
+      <h3>What bad docs cost a coding agent. 40 runs, measured.</h3>
+      <p style="margin: 0 0 16px; max-width: 64ch;">A controlled 40-run experiment on a smart-contract toolchain. Same model, same task, pass or fail decided by rerunning the test suite in a clean container. Bad context cost about 6x per working integration, at 5x the clock.</p>
+      <span class="stat">Read the finding ↗</span>
+    </a>
+
+    <div class="finding soon">
+      <div class="tag" style="color: #6b645e;">sample audit · in progress</div>
+      <h3 style="color: #57514b;">A full public audit of a well-known toolchain.</h3>
+      <p style="margin: 0; max-width: 64ch;" class="dim">The whole deliverable a client gets, run on a respected protocol's docs, for free, and published in full. No sales call, just the table. Landing soon. <a href="../audit.html" style="border-bottom: 1px solid rgba(107,100,94,0.4);">The paid version is here</a>.</p>
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section style="border-top: 1px solid #ddd6cc;">
+    <p style="max-width: 60ch;">More measured findings publish here as I run them. Want the same measurement on your own docs, in dollars?</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 18px;">
+      <a class="btn" href="../audit.html">The agent cost audit ↗</a>
+      <a class="mono" href="../check/" style="font-size: 14px; color: #14110f; text-decoration: none; border-bottom: 1.5px solid #14110f; padding-bottom: 2px;">Or run the free check ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<footer style="padding: 28px clamp(24px, 5vw, 48px) 48px; max-width: 880px; margin: 0 auto;">
+  <div class="mono" style="border-top: 1px solid #ddd6cc; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #6b645e;">
+    <span>© 2026 The L0 Guy</span>
+    <a href="../llms.txt" style="color: oklch(0.45 0.14 295);">/llms.txt</a>
+  </div>
+</footer>
+
+</body>
+</html>
